@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+service WeatherService {
+  rpc GetForecast (Location) returns (ForecastResponse);
+}
+
+message Location {
+  double latitude = 1;
+  double longitude = 2;
+}
+
+message ForecastPeriod {
+  string name = 1;
+  string detailedForecast = 2;
+}
+
+message ForecastResponse {
+  repeated ForecastPeriod periods = 1;
+}
